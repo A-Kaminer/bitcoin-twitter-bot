@@ -1,2 +1,2 @@
 # bitcoin-twitter-bot
-A twitter bot that tweets out some info about bitcoin
+An in-progress twitter bot that tweets out some info about bitcoin
