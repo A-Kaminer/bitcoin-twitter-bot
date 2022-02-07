@@ -75,8 +75,8 @@ if volatility == "insane":
 
 
 
-#print(tweet)
+print(tweet)
 #print(month_dates)
 #plot()
 #plt.show()
-print(year_dates)
+# print(year_dates)
