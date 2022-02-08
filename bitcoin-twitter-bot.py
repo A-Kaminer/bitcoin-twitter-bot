@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as npm
 import os
 import datetime
-import authorization
+from authorization import Authorization
 
 '''
 Tweet format:
@@ -106,6 +106,7 @@ def write_tweet(percent_change, opening, close, high, low, high_low_range):
 
 
 
+
 def main():
     # get data and plot it, then save the figure as figure.png
     data = Data()
@@ -113,7 +114,7 @@ def main():
     plt.savefig("figure.png")
     
     tweet = write_tweet(data.get_percent_change(), data.get_day_opening(), data.get_day_close(), data.get_day_high(), data.get_day_low(), data.get_high_low_range())
-    print(tweet)
+    keys = Authorization()
 
 if __name__ == "__main__":
     main()
