@@ -104,6 +104,22 @@ def write_tweet(percent_change, opening, close, high, low, high_low_range):
     return tweet
 
 
+def make_tweet(tweet, image_name):
+    auth = tweepy.OAuthHandler(keys.get_consumer_key(), keys.get_consumer_secret())
+    auth.set_access_token(keys.get_access_token(), keys.get_access_token_secret())
+    
+    api = tweepy.API(auth)
+    
+    try :
+        api.verify_credentials()
+        print("Authentication OK. Continuing to program...")
+    except:
+        print("Error during authentication...")
+        quit()
+
+    api.update_status(tweet, media_ids=image_name)
+
+
 
 
 
