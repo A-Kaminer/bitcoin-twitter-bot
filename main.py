@@ -13,6 +13,7 @@ Tweet format:
     a range of {range}. {Graph of today} {Graph of this month} {Graph of 365 days}
 '''
 
+
 class Data:
     def __init__(self):
         self.data = pdr.get_data_yahoo("BTC-USD")
@@ -22,35 +23,46 @@ class Data:
         self.opening_all = npm.round(self.data.Open, 2)
         self.dates_all = self.data.index
     
+
     def get_year_dates(self):
         return self.dates_all[-365:]
+
 
     def get_year_close(self):
         return self.close_all[-365:]
 
+
     def get_month_dates(self):
         return self.dates_all[-30:]
+
 
     def get_month_close(self):
         return self.close_all[-30:]
 
+
     def get_day_high(self):
         return self.high_all[-1]
+
 
     def get_day_low(self):
         return self.low_all[-1]
 
+
     def get_day_close(self):
         return self.close_all[-1]
+
 
     def get_day_opening(self):
         return self.opening_all[-1]
 
+
     def get_high_low_range(self):
         return npm.round(self.get_day_high() - self.get_day_low(), 2)
 
+
     def get_percent_change(self):
         return npm.round((self.get_day_close() - self.get_day_opening()) / self.get_day_opening() * 100, 2)
+
 
 
 
@@ -76,7 +88,6 @@ def plot(month_dates, month_close, year_dates, year_close):
     
 
 
-
 def write_tweet(percent_change, opening, close, high, low, high_low_range):
     if abs(high_low_range) <= 1500:
         volatility = "low"
@@ -90,6 +101,8 @@ def write_tweet(percent_change, opening, close, high, low, high_low_range):
     tweet = f"Today, bitcoin's (BTC-USD) price changed by {percent_change}%. It opened at ${opening} and closed at ${close}. The high was ${high}, and the low was ${low}, resulting in a range of ${high_low_range}. This suggests {volatility} volatility. Take a look at the month and year graphs below."
 
     return tweet
+
+
 
 
 def main():
