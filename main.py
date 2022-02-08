@@ -1,6 +1,6 @@
 import pandas_datareader as pdr
 import pandas as pd
-import twitter
+import tweepy
 import matplotlib.pyplot as plt
 import numpy as npm
 import os
