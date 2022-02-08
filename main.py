@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as npm
 import os
 import datetime
+import authorization
 
 '''
 Tweet format:
